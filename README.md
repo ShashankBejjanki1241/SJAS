@@ -2,6 +2,8 @@
 
 A deterministic 4-agent pipeline for resume parsing, job selection, job extraction, analysis, scoring, and writing.
 
+**Developers:** Varun Kumar Bejjanki & Shashank Bejjanki
+
 ## Architecture
 
 The system consists of 4 sequential agents:
