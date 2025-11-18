@@ -1,0 +1,19 @@
+{
+  "python": {
+    "tags": ["python", "backend"],
+    "urls": ["<primary>", "<backup>"]
+  },
+  "backend": {
+    "tags": ["backend", "api"],
+    "urls": ["<primary>", "<backup>"]
+  },
+  "data": {
+    "tags": ["data", "etl", "pipeline"],
+    "urls": ["<primary>", "<backup>"]
+  },
+  "default": {
+    "tags": ["*"],
+    "urls": ["<primary_default>"]
+  }
+}
+

@@ -1,0 +1,13 @@
+# Smart Job Match & Application Assistant
+# Minimal dependencies - only what's required by ADK
+
+# Python Version Requirement
+# Python 3.8 or higher is required
+
+# Add ADK dependencies here when known
+# Note: NO external libraries (BeautifulSoup, requests, Playwright, Selenium) 
+# unless explicitly required by ADK
+
+# Testing
+pytest>=7.0.0
+
