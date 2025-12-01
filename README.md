@@ -13,6 +13,20 @@ The system consists of 4 sequential agents:
 3. **Job Extractor Agent** - Extracts job information from ATS pages
 4. **Analyzer & Writer Agent** - Analyzes match and generates writing outputs
 
+### Architecture Diagrams
+
+Comprehensive Mermaid diagrams are available in [`ARCHITECTURE_DIAGRAM.md`](ARCHITECTURE_DIAGRAM.md), including:
+- High-level architecture flow
+- Detailed agent flow with tools
+- Sequential agent pipeline (ADK)
+- Data flow diagram
+- Component architecture
+- Error handling & fallback flow
+- Job selection logic
+- Scoring algorithm flow
+
+Quick reference: See [`ARCHITECTURE_DIAGRAM.md`](ARCHITECTURE_DIAGRAM.md) for the main flow diagram.
+
 ## Features
 
 - Strict JSON schema enforcement
@@ -28,19 +42,25 @@ The system consists of 4 sequential agents:
 
 ```
 /project-root
-    /agents
+    /agents_dir              # ADK agents directory (for adk web)
+        /sjas_agent          # Main agent (appears in ADK web UI)
+            __init__.py
+            agent.py
+    /agents                  # Agent implementations
         parser_agent.py
         selector_agent.py
         extractor_agent.py
         analyzer_writer_agent.py
-    /resources
-        job_map.json
-        stopwords.json
-    /core
+    /core                    # Core modules
+        adk_agents.py
+        adk_pipeline.py
         pipeline.py
         timeout_manager.py
         schema_validator.py
         utils.py
+    /resources
+        job_map.json
+        stopwords.json
     /tests
         test_parser.py
         test_selector.py
@@ -60,8 +80,10 @@ That's it. No virtual environments, no complex build steps. Just install and run
 
 ## Usage
 
+### Python API
+
 ```python
-from core.pipeline import run_pipeline
+from core.adk_pipeline import run_pipeline
 
 resume_text = "Your resume text here..."
 job_query = "Python Developer"
@@ -92,12 +114,26 @@ result = run_pipeline(resume_text, "DEMO: Python Developer")
    ```
 
 2. Run the pipeline:
+
+   **Option A: Python API**
    ```python
-   from core.pipeline import run_pipeline
+   from core.adk_pipeline import run_pipeline
    
    resume_text = "Your resume text here..."
    job_query = "Python Developer"
    result = run_pipeline(resume_text, job_query)
+   ```
+
+   **Option B: ADK Web UI**
+   ```bash
+   ./start_web_ui.sh
+   # Then open http://localhost:8000
+   # Select 'sjas_agent' from the dropdown
+   ```
+
+   **Option C: ADK CLI**
+   ```bash
+   adk run agents_dir/sjas_agent
    ```
 
 ## Testing

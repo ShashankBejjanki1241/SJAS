@@ -22,6 +22,9 @@ wheels/
 .venv
 env/
 venv/
+
+# ADK agent folder (contains .env potentially)
+sjas_agent/.env
 ENV/
 .vscode/
 .idea/
@@ -35,4 +38,17 @@ REF/
 PROJECT_PLAN.md
 .cursorrules
 BUILD_LOG.md
+*.md.bak
+*.swp
+*.swo
+*~
+
+# Documentation - ignore all .md files except essential ones
+*.md
+!README.md
+!SUBMISSION.md
+!ARCHITECTURE_DIAGRAM.md
+
+# Documents folder (internal guides)
+Documents/
 

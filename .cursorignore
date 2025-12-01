@@ -1,9 +1,0 @@
-__pycache__/
-*.log
-*.tmp
-*.pyc
-.env
-.vscode/
-.idea/
-*.pdf
-

@@ -1,19 +1,35 @@
 {
   "python": {
     "tags": ["python", "backend"],
-    "urls": ["<primary>", "<backup>"]
+    "urls": [
+      "https://jobs.lever.co/nava/7a315e81-41eb-40cc-bb0e-b065b7f88712",
+      "https://jobs.lever.co/ro/70759f62-1d98-4312-a6ed-db0ad9ce308c",
+      "https://jobs.lever.co/iterative/4d684b23-f924-41f5-a727-b79cac48a1e3",
+      "https://jobs.lever.co/Zowie/ae5932ca-540a-4fc0-9df7-ca2fba55dab0"
+    ]
   },
   "backend": {
     "tags": ["backend", "api"],
-    "urls": ["<primary>", "<backup>"]
+    "urls": [
+      "https://boards.greenhouse.io/anthropic/jobs/4561280008",
+      "https://boards.greenhouse.io/cdpjobs/jobs/6605826",
+      "https://boards.greenhouse.io/verkada/jobs/4135687007",
+      "https://boards.greenhouse.io/latitude/jobs/5483263"
+    ]
   },
   "data": {
     "tags": ["data", "etl", "pipeline"],
-    "urls": ["<primary>", "<backup>"]
+    "urls": [
+      "https://jobs.ashbyhq.com/springandbond/8d07d70b-7626-410a-bef7-9c68e855192b",
+      "https://jobs.ashbyhq.com/goodparty/e96b96f2-fc0d-4417-a52f-44a57da6a87a",
+      "https://jobs.ashbyhq.com/commure-athelas/e4552f89-156f-47a1-9e57-9388fcc9d0bc",
+      "https://jobs.ashbyhq.com/supabase/d0ed1a4b-b233-4ea9-9a19-a0d86fe1bb7a"
+    ]
   },
   "default": {
     "tags": ["*"],
-    "urls": ["<primary_default>"]
+    "urls": [
+      "https://jobs.lever.co/nava/7a315e81-41eb-40cc-bb0e-b065b7f88712"
+    ]
   }
 }
-

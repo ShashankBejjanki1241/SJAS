@@ -4,9 +4,13 @@
 # Python Version Requirement
 # Python 3.8 or higher is required
 
-# Add ADK dependencies here when known
-# Note: NO external libraries (BeautifulSoup, requests, Playwright, Selenium) 
-# unless explicitly required by ADK
+# ADK Integration
+google-adk>=1.18.0  # For load_web_page tool (browsing) and Agent framework
+google-generativeai>=0.8.0  # For direct LLM calls (used by ADK tools)
+python-dotenv>=1.0.0  # For loading .env file
+
+# Note: NO external libraries (BeautifulSoup, requests, Playwright, Selenium)
+# ADK's load_web_page tool provides browsing without external libs
 
 # Testing
 pytest>=7.0.0
