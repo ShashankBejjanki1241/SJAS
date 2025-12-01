@@ -46,8 +46,10 @@ graph LR
     
     subgraph "Agent 2: Job Selector"
         A2[Job Selector Agent] --> T2A[select_job_tool]
-        A2 --> T2B[fallback_tool]
+        A2 --> T2B[infer_job_category_from_resume_tool]
+        A2 --> T2C[fallback_tool]
         T2A --> O2[Selected URLs<br/>output_key: selected_job_urls]
+        T2B --> T2A
     end
     
     subgraph "Agent 3: Job Extractor"
@@ -287,7 +289,7 @@ graph TB
     class FallbackTool,TimeoutFallback,FallbackJSON errorStyle
 ```
 
-## 7. Job Selection Logic Flow
+## 7. Job Selection Logic Flow (Enhanced with Resume Inference)
 
 ```mermaid
 graph TD
@@ -300,20 +302,29 @@ graph TD
     ExactMatch -->|No| FuzzyMatch{Fuzzy Match<br/>via Tags?}
     
     FuzzyMatch -->|Yes| FuzzyURL[Return URLs from<br/>Matched Category]
-    FuzzyMatch -->|No| Fallback[Return Default Job<br/>from job_map.json]
+    FuzzyMatch -->|No| CheckVague{Query Vague or<br/>Conversational?}
+    
+    CheckVague -->|Yes| Infer[Infer Category from Resume<br/>infer_job_category_from_resume_tool<br/>Analyzes: title, skills, work history]
+    CheckVague -->|No| Fallback[Return Default Job<br/>from job_map.json]
+    
+    Infer -->|Category Found| InferURL[Return URLs from<br/>Inferred Category]
+    Infer -->|No Match| Fallback
     
     Default --> Result{Result:<br/>primary_url<br/>backup_url}
     ExactURL --> Result
     FuzzyURL --> Result
+    InferURL --> Result
     Fallback --> Result
     
     Result --> Extractor[Job Extractor Agent]
     
     classDef defaultStyle fill:#d4edda,stroke:#333,stroke-width:2px
     classDef resultStyle fill:#e1f5ff,stroke:#333,stroke-width:2px
+    classDef inferStyle fill:#fff4e1,stroke:#333,stroke-width:2px
     
     class Default,Fallback defaultStyle
     class Result resultStyle
+    class Infer,InferURL inferStyle
 ```
 
 ## 8. Scoring Algorithm Flow
@@ -362,4 +373,6 @@ These diagrams can be rendered in:
 - **Fallback Mechanism**: Each agent has access to `fallback_tool` for graceful error handling
 - **ADK Integration**: Uses ADK's `load_web_page` tool for ATS browsing (no external libraries)
 - **Memory Enabled**: `InMemoryMemoryService` provides debugging and state tracking
+- **Smart Resume Inference**: Job Selector Agent includes `infer_job_category_from_resume_tool` for intelligent category detection when queries are vague or conversational
+- **Progress Feedback**: All agents provide real-time progress messages to users for transparency
 
