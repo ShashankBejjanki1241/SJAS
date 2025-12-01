@@ -5,16 +5,35 @@
 > **Transform your job search with AI-powered automation**  
 > Reduce application time by **90%** while improving quality
 
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![ADK](https://img.shields.io/badge/ADK-1.18.0+-green.svg)](https://github.com/google/adk)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Agents for Good](https://img.shields.io/badge/Track-Agents%20for%20Good-brightgreen.svg)](https://www.kaggle.com/)
-[![Status](https://img.shields.io/badge/Status-Production%20Ready-success.svg)]()
+[![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/downloads/)
+[![Google ADK](https://img.shields.io/badge/Google%20ADK-1.18.0+-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://github.com/google/adk)
+[![Gemini](https://img.shields.io/badge/Gemini-2.5%20Flash%20Lite-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://ai.google.dev/)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![Status](https://img.shields.io/badge/Status-Production%20Ready-success?style=for-the-badge)]()
+
+[![Agents for Good](https://img.shields.io/badge/Track-Agents%20for%20Good-brightgreen?style=for-the-badge)](https://www.kaggle.com/)
+[![Multi-Agent](https://img.shields.io/badge/Architecture-Multi--Agent-blue?style=for-the-badge)](https://github.com/google/adk)
+[![Tools](https://img.shields.io/badge/Tools-20%2B-orange?style=for-the-badge)](https://github.com/google/adk)
+[![Time Savings](https://img.shields.io/badge/Time%20Savings-90%25-brightgreen?style=for-the-badge)]()
 
 **Built with:** Google ADK • Gemini 2.5 Flash Lite • Python  
-**Developers:** Varun Kumar Bejjanki & Shashank Bejjanki
+**Developers:** Varun Kumar Bejjanki & Shashank Bejjanki  
+**Repository:** [GitHub](https://github.com/ShashankBejjanki1241/SJAS) • [Documentation](ARCHITECTURE_DIAGRAM.md)
 
-[Features](#-key-features) • [Quick Start](#-quick-start) • [Architecture](#️-architecture) • [Documentation](#-documentation)
+[![Quick Start](https://img.shields.io/badge/Quick%20Start-Get%20Started-brightgreen?style=for-the-badge&logo=rocket)](https://github.com/ShashankBejjanki1241/SJAS#-quick-start)
+[![Features](https://img.shields.io/badge/Features-View%20All-blue?style=for-the-badge)](https://github.com/ShashankBejjanki1241/SJAS#-key-features)
+[![Architecture](https://img.shields.io/badge/Architecture-Diagrams-purple?style=for-the-badge)](https://github.com/ShashankBejjanki1241/SJAS#️-architecture)
+[![Documentation](https://img.shields.io/badge/Docs-Read%20More-orange?style=for-the-badge)](https://github.com/ShashankBejjanki1241/SJAS#-documentation)
+
+---
+
+### 🏆 Competition Submission
+
+**Track:** Agents for Good  
+**Key Concepts:** Multi-Agent System • Tools (20+) • Sessions & Memory  
+**Impact:** 90% Time Reduction • Production-Ready • Open Source
+
+---
 
 </div>
 
@@ -444,6 +463,14 @@ job_query = "DEMO:"
 ---
 
 ## 🎓 Key Concepts Demonstrated
+
+<div align="center">
+
+[![Multi-Agent](https://img.shields.io/badge/Concept-Multi--Agent%20System-blue?style=for-the-badge&logo=robot&logoColor=white)](#1-multi-agent-system-)
+[![Tools](https://img.shields.io/badge/Concept-Tools%20(20%2B)-orange?style=for-the-badge&logo=tools&logoColor=white)](#2-tools-)
+[![Sessions](https://img.shields.io/badge/Concept-Sessions%20%26%20Memory-green?style=for-the-badge&logo=database&logoColor=white)](#3-sessions--memory-)
+
+</div>
 
 This project demonstrates **3+ key concepts** from the ADK course:
 
@@ -878,31 +905,58 @@ Built for **Agents for Good** track - helping job seekers save time and reduce s
 
 ---
 
-## 📞 Contact
+## 📞 Contact & Support
 
-### Developers
+<div align="center">
 
-- **Varun Kumar Bejjanki**
-- **Shashank Bejjanki**
+### 👥 Developers
 
-### Repository
+**Varun Kumar Bejjanki** & **Shashank Bejjanki**
 
-🔗 [https://github.com/ShashankBejjanki1241/SJAS](https://github.com/ShashankBejjanki1241/SJAS)
+### 🔗 Links
 
-### Support
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ShashankBejjanki1241/SJAS)
+[![Issues](https://img.shields.io/badge/GitHub-Issues-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ShashankBejjanki1241/SJAS/issues)
+[![Documentation](https://img.shields.io/badge/Docs-Architecture%20Diagram-blue?style=for-the-badge)](ARCHITECTURE_DIAGRAM.md)
+[![Submission](https://img.shields.io/badge/Competition-Submission-green?style=for-the-badge)](SUBMISSION.md)
 
-- 📧 Open an issue on GitHub
-- 📖 Check documentation files
-- 💬 Review FAQ section
+### 💬 Support
+
+- 📧 **Open an Issue**: [GitHub Issues](https://github.com/ShashankBejjanki1241/SJAS/issues)
+- 📖 **Documentation**: Check [ARCHITECTURE_DIAGRAM.md](ARCHITECTURE_DIAGRAM.md) and [SUBMISSION.md](SUBMISSION.md)
+- ❓ **FAQ**: Review the [FAQ section](#-faq) above
+- 🔍 **Troubleshooting**: See [Troubleshooting guide](#-troubleshooting)
+
+</div>
 
 ---
 
 <div align="center">
 
+---
+
+### ⭐ Star this Repository
+
+If you find this project helpful, please consider giving it a star on GitHub!
+
+[![GitHub stars](https://img.shields.io/github/stars/ShashankBejjanki1241/SJAS?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ShashankBejjanki1241/SJAS/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/ShashankBejjanki1241/SJAS?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ShashankBejjanki1241/SJAS/network/members)
+[![GitHub watchers](https://img.shields.io/github/watchers/ShashankBejjanki1241/SJAS?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ShashankBejjanki1241/SJAS/watchers)
+
+---
+
 **Built with ❤️ for Agents for Good**
 
 *Reducing job search time by 90% • One application at a time*
 
+[![Made with Python](https://img.shields.io/badge/Made%20with-Python-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
+[![Powered by Google ADK](https://img.shields.io/badge/Powered%20by-Google%20ADK-4285F4?style=flat-square&logo=google&logoColor=white)](https://github.com/google/adk)
+[![Uses Gemini AI](https://img.shields.io/badge/Uses-Gemini%20AI-4285F4?style=flat-square&logo=google&logoColor=white)](https://ai.google.dev/)
+
 [⬆ Back to Top](#-smart-job-match--application-assistant)
+
+---
+
+**© 2024 Varun Kumar Bejjanki & Shashank Bejjanki. All rights reserved.**
 
 </div>
