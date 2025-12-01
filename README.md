@@ -33,6 +33,8 @@
 **Key Concepts:** Multi-Agent System • Tools (20+) • Sessions & Memory  
 **Impact:** 90% Time Reduction • Production-Ready • Open Source
 
+[![YouTube Demo](https://img.shields.io/badge/YouTube-Demo%20Video-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/FUv8KR2eMCg)
+
 ---
 
 </div>
@@ -63,6 +65,12 @@
 ## 🎯 Overview
 
 The **Smart Job Match & Application Assistant** is a production-ready, multi-agent AI system that revolutionizes the job search experience. Built with Google's ADK (Agents Development Kit), it automates the entire application process—from resume parsing to generating tailored cover letters—reducing time from **30-60 minutes to seconds**.
+
+### 🎥 Watch the Demo
+
+[![Watch on YouTube](https://img.shields.io/badge/▶️%20Watch%20Demo-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/FUv8KR2eMCg)
+
+See the system in action with a live demonstration of all features!
 
 ### The Problem We Solve
 
@@ -158,33 +166,35 @@ A **4-agent sequential AI pipeline** that:
 
 ## 🏗️ Architecture
 
-### High-Level Flow
+### High-Level Architecture Flow
 
 ```
-┌─────────────────────────────────────────────────────────┐
-│                    User Input                            │
-│         (Resume Text + Job Query)                        │
-└────────────────────┬────────────────────────────────────┘
-                     │
-                     ▼
-┌─────────────────────────────────────────────────────────┐
-│          SequentialAgent (Root Agent)                    │
-│    Orchestrates 4 specialized sub-agents                 │
-└────────────────────┬────────────────────────────────────┘
-                     │
-        ┌────────────┼────────────┐
-        │            │            │
-        ▼            ▼            ▼
-┌───────────┐  ┌───────────┐  ┌───────────┐  ┌───────────┐
-│ Agent 1:  │→ │ Agent 2:  │→ │ Agent 3:  │→ │ Agent 4:  │
-│ Resume    │  │ Job       │  │ Job       │  │ Analyzer  │
-│ Parser    │  │ Selector  │  │ Extractor │  │ & Writer  │
-└───────────┘  └───────────┘  └───────────┘  └───────────┘
-     │              │              │              │
-     ▼              ▼              ▼              ▼
-Structured    Job URLs      Job Details    Final Output
-Resume JSON   (Primary +    (Skills,       (Score, Cover
-              Backup)       Requirements)  Letter, etc.)
+                    ┌─────────────────────────────┐
+                    │      User Input             │
+                    │  Resume Text + Job Query     │
+                    └────────────┬────────────────┘
+                                  │
+                                  ▼
+                    ┌─────────────────────────────┐
+                    │   SequentialAgent (Root)     │
+                    │  Orchestrates 4 Sub-Agents    │
+                    └────────────┬────────────────┘
+                                  │
+                    ┌────────────┼────────────┐
+                    │            │            │
+                    ▼            ▼            ▼
+        ┌───────────────┐  ┌───────────────┐  ┌───────────────┐  ┌───────────────┐
+        │ Agent 1:      │→ │ Agent 2:      │→ │ Agent 3:      │→ │ Agent 4:      │
+        │ Resume Parser │  │ Job Selector  │  │ Job Extractor │  │ Analyzer &    │
+        │               │  │               │  │               │  │ Writer        │
+        └───────┬───────┘  └───────┬───────┘  └───────┬───────┘  └───────┬───────┘
+                │                  │                  │                  │
+                ▼                  ▼                  ▼                  ▼
+        ┌───────────────┐  ┌───────────────┐  ┌───────────────┐  ┌───────────────┐
+        │ Structured     │  │ Job URLs       │  │ Job Details   │  │ Final Output  │
+        │ Resume JSON    │  │ (Primary +     │  │ (Skills,      │  │ (Score, Cover │
+        │                │  │  Backup)       │  │  Requirements)│  │  Letter, etc.)│
+        └────────────────┘  └────────────────┘  └────────────────┘  └────────────────┘
 ```
 
 ### Agent Details
@@ -521,51 +531,47 @@ This project demonstrates **3+ key concepts** from the ADK course:
 
 ```
 SJAS/
-├── agents_dir/                    # ADK agents directory (for adk web)
-│   └── sjas_agent/                # Main agent (appears in ADK web UI)
-│       ├── __init__.py
-│       └── agent.py               # ADK entry point
+├── agents_dir/                    # ADK Agents Directory
+│   └── sjas_agent/                # Main Agent (ADK Web UI Entry Point)
+│       ├── __init__.py            # Package initialization
+│       └── agent.py               # Root SequentialAgent definition
 │
-├── agents/                        # Agent implementations
-│   ├── parser_agent.py            # Resume parsing logic
-│   ├── selector_agent.py          # Job selection + inference logic
-│   ├── extractor_agent.py         # Job extraction logic
-│   └── analyzer_writer_agent.py   # Analysis + writing logic
+├── agents/                        # Agent Implementation Modules
+│   ├── parser_agent.py            # Resume parsing & normalization
+│   ├── selector_agent.py          # Job selection with smart inference
+│   ├── extractor_agent.py         # ATS page extraction
+│   └── analyzer_writer_agent.py   # Match analysis & content generation
 │
-├── core/                          # Core modules
-│   ├── adk_agents.py              # All 4 agents + 20+ tools
-│   ├── adk_pipeline.py            # Pipeline orchestration
+├── core/                          # Core System Modules
+│   ├── adk_agents.py              # ADK agent definitions (4 agents + 20+ tools)
+│   ├── adk_pipeline.py            # Pipeline orchestration & execution
 │   ├── schema_validator.py        # JSON schema validation
-│   ├── timeout_manager.py         # Timeout handling
-│   ├── utils.py                   # Utility functions
-│   ├── adk_integration.py         # ADK integration utilities
-│   └── adk_fallback_handler.py    # Error recovery
+│   ├── timeout_manager.py         # Global timeout handling
+│   ├── utils.py                   # Text processing utilities
+│   ├── adk_integration.py         # ADK integration helpers
+│   └── adk_fallback_handler.py    # Error recovery mechanisms
 │
-├── resources/
+├── resources/                     # Configuration & Data Files
 │   ├── job_map.json               # Pre-vetted job URLs (13 verified)
-│   └── stopwords.json             # Skill normalization
+│   └── stopwords.json             # Skill normalization dictionary
 │
-├── tests/                         # Test suite (8 test files)
-│   ├── test_parser.py
-│   ├── test_selector.py
-│   ├── test_extractor.py
-│   ├── test_analyzer_writer.py
-│   ├── test_pipeline.py
-│   ├── test_schema_validator.py
-│   ├── test_timeout_manager.py
-│   └── test_utils.py
+├── tests/                         # Test Suite
+│   ├── test_parser.py              # Resume parser tests
+│   ├── test_selector.py            # Job selector tests
+│   ├── test_extractor.py          # Job extractor tests
+│   ├── test_analyzer_writer.py    # Analyzer & writer tests
+│   ├── test_pipeline.py           # Pipeline integration tests
+│   ├── test_schema_validator.py   # Schema validation tests
+│   ├── test_timeout_manager.py    # Timeout handling tests
+│   └── test_utils.py               # Utility function tests
 │
-├── Documents/                     # Internal guides (git-ignored)
-│   ├── ADK_UI_DEMO_GUIDE.md
-│   └── EVALUATION_CHECKLIST.md
-│
-├── README.md                      # This file
-├── SUBMISSION.md                  # Competition submission details
-├── ARCHITECTURE_DIAGRAM.md        # Comprehensive architecture diagrams
-├── requirements.txt               # Dependencies
-├── start_web_ui.sh                # ADK web UI startup script
-├── pytest.ini                     # Test configuration
-└── .gitignore                     # Git ignore rules
+└── Documentation & Config        # Project Documentation
+    ├── README.md                  # Project overview & documentation
+    ├── SUBMISSION.md               # Competition submission details
+    ├── ARCHITECTURE_DIAGRAM.md     # Architecture diagrams
+    ├── requirements.txt            # Python dependencies
+    ├── start_web_ui.sh             # ADK web UI startup script
+    └── pytest.ini                  # Test configuration
 ```
 
 ---
@@ -916,6 +922,7 @@ Built for **Agents for Good** track - helping job seekers save time and reduce s
 ### 🔗 Links
 
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ShashankBejjanki1241/SJAS)
+[![YouTube](https://img.shields.io/badge/YouTube-Demo%20Video-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/FUv8KR2eMCg)
 [![Issues](https://img.shields.io/badge/GitHub-Issues-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ShashankBejjanki1241/SJAS/issues)
 [![Documentation](https://img.shields.io/badge/Docs-Architecture%20Diagram-blue?style=for-the-badge)](ARCHITECTURE_DIAGRAM.md)
 [![Submission](https://img.shields.io/badge/Competition-Submission-green?style=for-the-badge)](SUBMISSION.md)
